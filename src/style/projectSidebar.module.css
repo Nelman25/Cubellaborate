@@ -1,17 +1,20 @@
 .sidebar {
-  background: radial-gradient(#573c72, #430e79);
-  box-shadow: 2px 2px 30px rgb(87, 7, 151);
   padding: 2rem;
   margin: 0;
-  border-radius: 10px;
   width: 18%;
   color: white;
+  backdrop-filter: blur(2px) saturate(200%);
+  -webkit-backdrop-filter: blur(6px) saturate(200%);
+  background-color: rgba(7, 42, 107, 0.44);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }
 .appTitle {
   color: white;
   font-size: 2.7rem;
   font-weight: bold;
-  background: linear-gradient(40deg, #ea00ff, #ea00ff, #03d5ff, #03d5ff);
+  /* background: linear-gradient(40deg, #ea00ff, #ea00ff, #03d5ff, #03d5ff); */
+  background: linear-gradient(40deg, #ecd823, #cecc56, #03d5ff, #1941c5);
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -28,7 +31,7 @@
     transition: box-shadow 0.25s ease, font-size 0.25s ease;
 }
 .projectButton:hover {
-    box-shadow: 5px 5px 100px rgb(177, 104, 177);
+    box-shadow: 5px 5px 100px rgb(231, 192, 19);
     font-size: 1.2rem;
 }
 .myWorkspace {

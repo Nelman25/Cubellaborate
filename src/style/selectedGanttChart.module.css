@@ -50,3 +50,13 @@
 p {
   word-wrap: break-word;
 }
+.calendarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  margin-top: 3rem;
+  border-radius: 5px;
+  background-color:#220144;
+}

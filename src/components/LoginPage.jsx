@@ -42,7 +42,7 @@ export default function LoginPage() {
   return (
     <>
       <div class={style.container}>
-        <h1 class={style.title}>CollabSphere</h1>
+        <h1 class={style.title}>Cubellaborate</h1>
         <p class={style.subTitle}>Navigate the workflow seas with ease!</p>
         <form class={style.formContainer} onSubmit={handleLogin}>
           <div>

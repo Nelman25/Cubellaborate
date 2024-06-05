@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 
 const Input = forwardRef(function Input({ label, textarea, ...props }, ref) {
   const classes =
-    "w-full p-1 border-b-2 rounded-xl border-gray-100 text-gray-900 focus:outline-none focus:border-gray-600";
+    "w-full p-1 border-b-2 rounded-xl border-yellow-900 text-gray-900";
 
   return (
     <p className="flex flex-col gap-1 my-4">

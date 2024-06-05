@@ -1,32 +1,35 @@
-
 .selectedProjectContainer {
-  background: radial-gradient(#400779, #280b42);
-  width: 500px;
+  /* background: radial-gradient(#400779, #280b42); */
+  width: 1000px;
   word-wrap: break-word;
   height: 870px;
   padding: 3rem;
-  border-radius: 10px;
   margin-top: 3rem;
   color: white;
+  backdrop-filter: blur(2px) saturate(200%);
+  -webkit-backdrop-filter: blur(6px) saturate(200%);
+  background-color: rgba(219, 207, 38, 0.44);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }
 .topContainer {
   display: flex;
   justify-content: space-between;
 }
 .topContainer button {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .title {
   font-size: 1.5rem;
   text-transform: uppercase;
   font-weight: bold;
-  color: rgb(236, 236, 236);
+  color: rgb(0, 0, 0);
   padding-bottom: 1rem;
-  width: 300px;
+  width: 600px;
 }
 .description {
-  color: rgb(196, 196, 196);
+  color: rgb(46, 46, 46);
   white-space: wrap;
   font-style: italic;
   padding: 1rem;
@@ -34,11 +37,10 @@
 .deleteButton {
   background-color: rgba(219, 47, 47, 0.576);
 }
- .date {
+.date {
   font-weight: bold;
-  color: rgb(255, 243, 243);
- }
- p {
+  color: rgb(29, 29, 29);
+}
+p {
   word-wrap: break-word;
- }
- 
+}
