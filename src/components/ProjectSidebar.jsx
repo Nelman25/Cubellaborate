@@ -10,7 +10,7 @@ export default function ProjectSidebar({
     <>
       <div class={style.sidebar}>
       <div class={style.titleLogo}>
-        <h2 class={style.appTitle}>CollabSphere</h2>
+        <h2 class={style.appTitle}>Cubellaborate</h2>
       </div>
       <div>
         <p class={style.myWorkspace}>My Workspaces</p>

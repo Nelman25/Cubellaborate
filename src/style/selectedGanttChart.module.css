@@ -32,10 +32,9 @@
   padding: 1rem;
 }
 .ganttChart {
-    height: 500px;
-    width: 500px;
-    border: 3px solid red;
-    
+  height: 500px;
+  width: 500px;
+  border: 3px solid red;
 }
 
 .deleteButton {
@@ -58,5 +57,9 @@ p {
   height: 400px;
   margin-top: 3rem;
   border-radius: 5px;
-  background-color:#220144;
+  backdrop-filter: blur(2px) saturate(200%);
+  -webkit-backdrop-filter: blur(6px) saturate(200%);
+  background-color: rgba(32, 68, 136, 0.44);
+  border-radius: 12px;
+  border: 1px solid rgba(238, 226, 55, 0.125);
 }
