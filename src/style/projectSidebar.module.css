@@ -22,20 +22,33 @@
 }
 
 .projectButton {
-    padding: 0.5rem;
-    width: 240px;
-    max-width: 240px;
-    word-wrap: break-word;
-    border-radius: 10px;
-    margin: 5px;
-    transition: box-shadow 0.25s ease, font-size 0.25s ease;
+  padding: 0.5rem;
+  width: 240px;
+  max-width: 240px;
+  word-wrap: break-word;
+  border-radius: 10px;
+  margin: 5px;
+  transition: box-shadow 0.25s ease, font-size 0.25s ease;
 }
 .projectButton:hover {
-    box-shadow: 5px 5px 100px rgb(231, 192, 19);
-    font-size: 1.2rem;
+  box-shadow: 5px 5px 100px rgb(231, 192, 19);
+  font-size: 1.2rem;
 }
 .myWorkspace {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.projectList {
+  max-height: 40rem;
+  overflow-y: auto;
+}
+.projectList::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+}
+.projectList::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.527); /* Track color */
+}
+.projectList::-webkit-scrollbar-thumb {
+  background-color: #153879; /* Handle color */
 }

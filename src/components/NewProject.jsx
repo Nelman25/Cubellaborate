@@ -1,9 +1,25 @@
 import { useRef } from "react";
 import Input from "./Input";
 import Modal from "./Modal";
+import app from "../firebase.js";
+import { getFirestore, addDoc, doc, collection } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+const addProject = async (project) => {
+  const user = auth.currentUser;
+  if (user) {
+    const projectColRef = collection(db, "users", user.uid, "projects");
+    const projectRef = await addDoc(projectColRef, project);
+    return projectRef.id;
+  } else {
+    console.log("No authenticated user");
+  }
+};
 
 export default function NewProject({ onAdd, onCancel }) {
-
   const modal = useRef();
   const title = useRef();
   const description = useRef();
@@ -15,24 +31,40 @@ export default function NewProject({ onAdd, onCancel }) {
     const enteredDescription = description.current.value;
     const enteredDueDate = dueDate.current.value;
     const enteredStartDate = startDate.current.value;
-    
+
     if (
       enteredTitle.trim() === "" ||
       enteredDescription.trim() === "" ||
-      enteredDueDate.trim() === "" || 
+      enteredDueDate.trim() === "" ||
       enteredStartDate.trim() === ""
     ) {
       modal.current.open();
       return;
     }
 
-    onAdd({
+    const projectData = {
       title: enteredTitle,
       description: enteredDescription,
       startDate: enteredStartDate,
       dueDate: enteredDueDate,
-    });
+    };
+
+    addProject(projectData)
+      .then((projectId) => {
+        console.log(`Project id: ${projectId}`);
+        onAdd(projectData);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }
+  //   onAdd({
+  //     title: enteredTitle,
+  //     description: enteredDescription,
+  //     startDate: enteredStartDate,
+  //     dueDate: enteredDueDate,
+  //   });
+  // }
 
   return (
     <>
@@ -48,7 +80,10 @@ export default function NewProject({ onAdd, onCancel }) {
       <div className="w-[35rem] mt-16 ml-16">
         <menu className="flex items-center justify-end gap-4 my-4">
           <li>
-            <button className="text-yellow-400 hover:text-yellow-500" onClick={onCancel}>
+            <button
+              className="text-yellow-400 hover:text-yellow-500"
+              onClick={onCancel}
+            >
               Cancel
             </button>
           </li>
