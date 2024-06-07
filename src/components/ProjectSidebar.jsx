@@ -12,9 +12,9 @@ export default function ProjectSidebar({
       <div className={style.titleLogo}>
         <h2 className={style.appTitle}>Cubellaborate</h2>
       </div>
-      <div>
+      <div className={style.titleButtonDiv}>
         <p className={style.myWorkspace}>My Workspaces</p>
-        <Button onClick={onStartAddProject}>+ Add Project</Button>
+        <Button onClick={onStartAddProject}></Button>
       </div>
       <ul className={style.projectList}>
         {projects.map((project) => (

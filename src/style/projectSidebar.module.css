@@ -20,6 +20,13 @@
   -webkit-text-fill-color: transparent;
   margin-bottom: 2rem;
 }
+.titleButtonDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
 
 .projectButton {
   padding: 0.5rem;

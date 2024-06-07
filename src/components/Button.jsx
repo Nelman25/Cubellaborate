@@ -1,11 +1,32 @@
+import AddButton from "../style/AddButton.css";
 export default function Button({ children, ...props }) {
   return (
-    <button
-      className="px-4 py-2 text-xs md:text-base rounded-md bg-gray-800 text-gray-200 font-bold hover:bg-gray-700 hover:text-gray-100"
-      {...props}
-    >
-      {" "}
-      {children}
+    // <button
+    //   className=''
+    //   {...props}
+    // >
+    //   {" "}
+    //   {children}
+    // </button>
+    <button type="button" class="button">
+      <span class="button__text">+ Project</span>
+      <span class="button__icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke="currentColor"
+          height="24"
+          fill="none"
+          class="svg"
+        >
+          <line y2="19" y1="5" x2="12" x1="12"></line>
+          <line y2="12" y1="12" x2="19" x1="5"></line>
+        </svg>
+      </span>
     </button>
   );
 }

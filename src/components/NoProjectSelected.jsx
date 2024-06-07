@@ -2,7 +2,7 @@ import noProjectImg from "../assets/no-projects.png";
 import Button from "./Button";
 export default function NoProjectSelected({ onStartAddProject }) {
   return (
-    <div className="mt-72 ml-32 text-center w-2/3 ">
+    <div className="mt-72 ml-32 text-center w-2/3 flex flex-col">
       <img
         src={noProjectImg}
         alt="An empty task list"
@@ -14,9 +14,9 @@ export default function NoProjectSelected({ onStartAddProject }) {
       <p className="text-gray-100 mb-4">
         Select a project, create a new one, or join using a workspace code.
       </p>
-      <p className="mt-8">
+      <div className="flex justify-center">
         <Button onClick={onStartAddProject}>Create new project</Button>
-      </p>
+      </div>
     </div>
   );
 }

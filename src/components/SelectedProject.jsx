@@ -3,6 +3,7 @@ import Tasks from "./Tasks";
 import style from "../style/selectedProject.module.css";
 import style2 from "../style/selectedGanttChart.module.css";
 import Calendars from "./Calendars";
+import RightSideBar from "./RightSideBar.jsx";
 
 export default function SelectedProject({
   project,
@@ -54,6 +55,7 @@ export default function SelectedProject({
       <div className={style2.calendarContainer}>
           <Calendars />
         </div>
+        <RightSideBar />
     </>
   );
 }
