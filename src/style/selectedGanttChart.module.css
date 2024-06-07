@@ -51,10 +51,11 @@ p {
 }
 .calendarContainer {
   display: flex;
+  padding: 4rem;
   justify-content: center;
   align-items: center;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   margin-top: 3rem;
   border-radius: 5px;
   backdrop-filter: blur(2px) saturate(200%);

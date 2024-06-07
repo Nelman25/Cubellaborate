@@ -1,4 +1,3 @@
-import GanttChart from "./GanttChart";
 import Tasks from "./Tasks";
 import style from "../style/selectedProject.module.css";
 import style2 from "../style/selectedGanttChart.module.css";

@@ -1,5 +1,5 @@
 import AddButton from "../style/AddButton.css";
-export default function Button({ children, ...props }) {
+export default function Button({ ...props }) {
   return (
     // <button
     //   className=''
@@ -8,7 +8,8 @@ export default function Button({ children, ...props }) {
     //   {" "}
     //   {children}
     // </button>
-    <button type="button" class="button">
+    <button type="button" class="button" {...props}>
+      {" "}
       <span class="button__text">+ Project</span>
       <span class="button__icon">
         <svg
