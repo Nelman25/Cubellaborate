@@ -56,37 +56,74 @@ function AppContent() {
    }, [db, user])
 
   function handleAddTask(text) {
-    setProjectsState((prevState) => {
-      const taskId = Math.random();
-      const newTask = {
-        text: text,
-        projectId: prevState.selectedProjectId,
-        id: taskId,
-      };
+   if(!projectsState.selectedProjectId) return;
 
-      return {
-        ...prevState,
-        tasks: [newTask, ...prevState.tasks],
-      };
-    });
-  }
+   const NewTask = {
+    text: text,
+    projectId: projectsState.selectedProjectId,
+    createdAt: new Date()
+   }
+
+   const taskColRef = collection(db, "users", user.uid, "projects", projectsState.selectedProjectId, "tasks")
+   
+   addDoc(taskColRef, NewTask)
+    .then((docRef) => {
+      setProjectsState((prevState) => ({
+      ...prevState,
+      tasks :[
+        {...NewTask, id: docRef.id},
+        ...prevState.tasks
+      ]
+      }));
+    })
+    .catch((error) =>{
+      console.log("Error in adding tasks: ", error)
+    })
+  };
+    
+  
 
   function handleDeleteTask(id) {
-    setProjectsState((prevState) => {
-      return {
+    if(!projectsState.selectedProjectId) return;
+    console.log("id:", id)
+    const taskDocRef = doc(db, "users", user.uid, "projects", projectsState.selectedProjectId, "tasks", id)
+
+    deleteDoc(taskDocRef)
+    .then(() =>{
+      setProjectsState((prevState) => ({ 
         ...prevState,
-        tasks: prevState.tasks.filter((task) => task.id !== id),
-      };
-    });
+        tasks: prevState.tasks.filter((task) => task.id !== id), 
+      }));
+    })
+    .catch((error) =>{
+      console.log("Error in deleting tasks:", error)
+    })
   }
 
   function handleSelectProject(id) {
-    setProjectsState((prevState) => {
-      return {
+    setProjectsState((prevState) => ({
         ...prevState,
         selectedProjectId: id,
-      };
-    });
+    }));
+    if(!user) return;
+
+    const taskColRef = collection(db, "users", user.uid, "projects", projectsState.selectedProjectId, "tasks")
+
+    getDocs(taskColRef)
+      .then((snapshot) =>{
+
+        const taskList = snapshot.docs.map((doc) =>({
+          id: doc.id,
+          ...doc.data(),
+        }))
+        setProjectsState((prevState) =>({
+          ...prevState,
+          tasks: taskList,
+        }))
+      })
+      .catch((error) => {
+        console.log("error fetching tasks", error)
+      })
   }
 
   function handleStartAddProject() {
@@ -106,7 +143,7 @@ function AppContent() {
       };
     });
   }
-// unnecessary commit
+
   function handleAddProject(projectData) {
     
     const colRef = collection(db, "users", user.uid, "projects")

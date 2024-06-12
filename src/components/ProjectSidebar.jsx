@@ -8,19 +8,19 @@ export default function ProjectSidebar({
   selectedProjectId,
 }) {
   return (
-    <div className={style.sidebar}>
-      <div className={style.titleLogo}>
-        <h2 className={style.appTitle}>Cubellaborate</h2>
+    <div class={style.sidebar}>
+      <div class={style.titleLogo}>
+        <h2 class={style.appTitle}>Cubellaborate</h2>
       </div>
-      <div className={style.titleButtonDiv}>
-        <p className={style.myWorkspace}>My Workspaces</p>
+      <div class={style.titleButtonDiv}>
+        <p class={style.myWorkspace}>My Workspaces</p>
         <Button onClick={onStartAddProject}></Button>
       </div>
-      <ul className={style.projectList}>
+      <ul class={style.projectList}>
         {projects.map((project) => (
           <li key={project.id}>
             <button
-              className={style.projectButton}
+              class={style.projectButton}
               onClick={() => onSelectProject(project.id)}
             >
               {project.title}
@@ -28,7 +28,7 @@ export default function ProjectSidebar({
           </li>
         ))}
       </ul>
-      <div className="rounded-lg bg-gradient-to-tr from-gray-300 to-gray-500 shadow-lg shadow-[#a4a4a4,#ffffff]"></div>
+      <div class="rounded-lg bg-gradient-to-tr from-gray-300 to-gray-500 shadow-lg shadow-[#a4a4a4,#ffffff]"></div>
     </div>
   );
 }
